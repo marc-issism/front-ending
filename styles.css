@@ -1,6 +1,137 @@
 body {
-    background-color: #f7b284;
-    color: #fce4d3;
+    --dark: rgb(28, 43, 78);
+    --mid: rgb(80, 95, 131);
+    --light: rgb(152, 155, 175);
+    --white: #dbdae9;
+    --padding: 4px;
+    background-color: var(--dark);
+    color: var(--white);
     font-family: monospace;
-    
+    font-weight: bold;
 }
+
+/* https://www.joshwcomeau.com/css/interactive-guide-to-grid/ */
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+.parent {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    position: relative;
+    padding: var(--padding);
+    border: 1px solid var(--mid);
+    border-radius:8px;
+
+}
+
+
+.child {
+    height:100px;
+    text-align: center;
+    place-content: center;
+    border: 1px solid var(--mid);
+    padding: var(--padding);
+    margin: 4px;
+    border-radius: 4px;
+    font-size: 1.3125rem;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1px solid var(--mid);
+    padding: 4px;
+    border-radius:8px;
+}
+
+.day {
+    display: grid;
+    border: 2px solid var(--mid);
+    aspect-ratio: 1/1;
+    text-align: center;
+    place-content: center;
+    font-size: 1.3125rem;
+    margin: 4px;
+    border-radius: 8px;
+}
+
+.griddy {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    /* grid-area: row-start col-start row-end col-end; */
+    border: 2px solid var(--mid);
+    padding: 4px;
+}
+
+.griddyBaby1 {
+    display: grid;
+    z-index: 0;
+    border: 2px solid var(--mid);
+    margin: 4px;
+    aspect-ratio: 1/1;
+    grid-area: 2 / 2 / 4 / 4;
+}
+
+.griddyBaby {
+    display: grid;
+    border: 2px solid var(--mid);
+    margin: 4px;
+    aspect-ratio: 1/1;
+    z-index: 1;
+}
+
+.lifeArea {
+    display: grid;
+    border: 2px solid var(--mid);
+
+    padding: 4px;
+    grid-template-columns: 100px 4fr;
+    grid-template-areas: 
+        'date hours'
+        'lifeBlocks lifeBlocks';
+
+}
+
+.lifeDate {
+    grid-area: date;
+    border: 2px solid var(--mid);
+    margin: 4px;
+}
+
+.lifeHours {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-area: hours;
+    border: 2px solid var(--mid);
+    margin: 4px;
+}
+
+
+.lifeBlocks {
+    grid-area: lifeBlocks;
+    border: 2px solid var(--mid);
+    margin: 4px;
+    grid-template-rows: repeat(7, 1fr);
+
+}
+
+.lifeBlock {
+    border: 2px solid var(--mid);
+    margin: 4px;
+    grid-template-columns: 100px repeat(4, 1fr);
+}
+
+
+.horbig {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-area: hours;
+}
+.hori {
+    display: grid;
+}
+
+.lifeTrackerContainer {
+    display: grid;
+}
+
